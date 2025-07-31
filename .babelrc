@@ -1,0 +1,21 @@
+// farmus_frontend/.babelrc
+
+{
+    // next/babel 프리셋을 기본으로 사용합니다. Next.js에 최적화된 바벨 설정입니다.
+    "presets": ["next/babel"],
+    // 추가적으로 사용할 플러그인 목록입니다.
+    "plugins": [
+      // styled-components 플러그인을 사용합니다.
+      [
+        "styled-components",
+        {
+          // "ssr": true : 서버사이드 렌더링(SSR)을 활성화합니다. Next.js의 핵심 기능과 연동됩니다.
+          "ssr": true,
+          // "displayName": true : 개발 시 클래스명에 컴포넌트 이름을 붙여줘서 디버깅을 쉽게 해줍니다. (예: <Title> -> <h1 class="Title-sc-12345">)
+          "displayName": true,
+          // "preprocess": false : 이 옵션은 구버전에서 사용되던 것으로, 현재는 false로 두는 것이 일반적입니다.
+          "preprocess": false
+        }
+      ]
+    ]
+  }
