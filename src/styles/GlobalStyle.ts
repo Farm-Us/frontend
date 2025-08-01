@@ -1,22 +1,49 @@
-// src/styles/GlobalStyle.ts
+// farmus_frontend/src/styles/GlobalStyle.ts
 import { createGlobalStyle, css } from 'styled-components';
-import reset from 'styled-reset';
+import reset from 'styled-reset'; // styled-reset이 설치되어 있다면 임포트하여 사용
 
-// 앱 전체에 적용될 공통 스타일을 정의합니다.
 const GlobalStyle = createGlobalStyle`
-  /* css 헬퍼 함수로 reset 스타일을 감싸 타입스크립트 호환성 문제를 해결합니다. */
   ${css`
     ${reset}
   `}
 
-  * { box-sizing: border-box; }
-  body {
-    /* Pretendard 폰트가 없다면 시스템 기본 폰트를 사용합니다. */
+  html, body, #__next { // Next.js의 기본 root div는 #__next 입니다.
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
-    background-color: ${({ theme }) => theme.colors.background};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    color: ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.colors.backgroundLight};
   }
-  a { color: inherit; text-decoration: none; }
-  button, input { font-family: inherit; }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 `;
 
 export default GlobalStyle;

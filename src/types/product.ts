@@ -1,13 +1,13 @@
-// src/types/product.ts
+// farmus_frontend/src/types/product.ts
 
-/**
- * 백엔드 API 명세서()와 테이블 정의서에 기반하여
- * 상품 데이터의 타입을 정의합니다.
- */
 export interface Product {
-    id: number;           // 상품 고유 ID
-    name: string;         // 상품명
-    price: number;        // 가격
-    imageUrl?: string;    // 대표 이미지 URL (옵셔널)
-    producerName?: string;// 생산자 이름 (옵셔널)
-  }
+  id: number;
+  name: string;
+  price: number;
+  imageUrl: string;
+  producerName: string;
+  rating?: number;    // 추가: 별점 (선택 사항)
+  reviews?: number;   // 추가: 리뷰 수 (선택 사항)
+  discount?: string;  // 추가: 할인율 (선택 사항, 예: "13%")
+  // 필요한 경우 다른 Product 관련 속성도 여기에 추가할 수 있습니다.
+}

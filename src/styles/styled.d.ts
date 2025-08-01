@@ -6,6 +6,9 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
+      [x: string]: Interpolation<FastOmit<DetailedHTMLProps<
+        // 이 파일 덕분에 프로젝트 모든 곳에서 theme 객체의 타입을 정확히 알 수 있습니다.
+        HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>>;
       primary: string;
       secondary: string;
       background: string;
